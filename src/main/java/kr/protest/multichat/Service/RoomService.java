@@ -7,5 +7,5 @@ import kr.protest.multichat.Entity.Users;
 import java.util.List;
 
 public interface RoomService {
-    List<Room> findActiveRoomsByUser(Users user);
+    List<Room> findActiveRoomsByUserId(Long uid);
 }

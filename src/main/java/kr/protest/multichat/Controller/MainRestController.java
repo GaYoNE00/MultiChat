@@ -22,10 +22,8 @@ public class MainRestController {
 
     @RequestMapping("/chat_list")
     public List<Room> chat_list(Long uid){
-        Users user = new Users();
-        user.setUid(uid);
-        List<Room> result = roomRepository.findByUidAndState(user,true);
-
+        List<Room> result = roomRepository.findActiveRoomsByUserId(uid);
+        System.out.println(result);
         return result;
     }
 }
