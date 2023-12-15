@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <input id="id" type="text">
+    <button id="search_id" onclick="search_id()">아이디 확인</button>
+
+    <script>
+
+        function search_id(){
+            id = document.getElementById('id').value;
+
+            $.ajax({
+                type: "GET",
+                url: "/chat_list",
+                data: {"id":id},
+                success: function (response) {
+                    console.log(response);
+                },
+                error:function (request,state,error){
+                    console.log(error);
+                }
+            });
+
+        }
+
+
+    </script>
+</body>
+</html>
