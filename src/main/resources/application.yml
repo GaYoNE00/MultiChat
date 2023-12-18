@@ -73,3 +73,7 @@ logging:
         type:
           descriptor:
             sql: trace
+
+###############################
+# SEQURITY
+###############################

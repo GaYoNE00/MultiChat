@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<nav th:fragment="navbarFragment" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">SBB</a>
+    (... 생략 ...)
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">로그인</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/user/signup}">회원가입</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div layout:fragment="content" class="container my-3">
+  <div class="my-3 border-bottom">
+    <div>
+      <h4>회원가입</h4>
+    </div>
+  </div>
+  <form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post">
+    <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+    <div class="mb-3">
+      <label for="lid" class="form-label">사용자ID</label>
+      <input type="text" th:field="*{lid}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="lpwd" class="form-label">비밀번호</label>
+      <input type="password" th:field="*{lpwd}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="lpwd2" class="form-label">비밀번호 확인</label>
+      <input type="password" th:field="*{lpwd2}" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">이름</label>
+      <input type="email" th:field="*{name}" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">회원가입</button>
+  </form>
+</div>
+</html>

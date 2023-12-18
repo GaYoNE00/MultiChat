@@ -12,4 +12,10 @@ public class MainController {
 
         return "chatlist";
     }
+
+    @GetMapping("/")
+    public String index(){
+
+        return "index";
+    }
 }

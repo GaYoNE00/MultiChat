@@ -17,12 +17,12 @@ import lombok.NoArgsConstructor;
 public class Users extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long uid;
-    String name;
+    private Long uid;
+    private String uname;
 
-    String id;
+    private String lid;
 
-    String pwd;
+    private String lpwd;
 
 
 

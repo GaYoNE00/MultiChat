@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <input id="id" type="text">
     <button id="search_id" onclick="search_id()">아이디 확인</button>
+    <div id="buttonContainer"></div>
 
     <script>
 
@@ -21,6 +22,12 @@
                 data: {"uid":id},
                 success: function (response) {
                     console.log(response);
+                    response.forEach(item => {
+                        // 각 데이터 항목에 대한 버튼 생성
+                        // $('#buttonContainer').append('<button>' + item.title + '</button>');
+                        $('#buttonContainer').append('<button onclick="show_rid('+item.rid+')" data-rid="' + item.rid + '">' + item.title + '</button></br>');
+                    });
+
                 },
                 error:function (request,state,error){
                     console.log(error);
@@ -29,6 +36,9 @@
 
         }
 
+        function show_rid(rid){
+            console.log("누른거 : ", rid);
+        }
 
     </script>
 </body>
