@@ -34,9 +34,9 @@ spring:
   #################################
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://118.46.199.58:5432/MultiChat
-    username: 'postgres'
-    password: '@dudgh0830'
+    url: 'URL'
+    username: 'ID'
+    password: 'PW'
 
   #################################
   # JPA Setting
