@@ -25,22 +25,31 @@
     </div>
   </div>
   <form th:action="@{/user/signup}" th:object="${userCreateForm}" method="post">
-    <div th:replace="~{form_errors :: formErrorsFragment}"></div>
-    <div class="mb-3">
-      <label for="lid" class="form-label">사용자ID</label>
-      <input type="text" th:field="*{lid}" class="form-control">
-    </div>
-    <div class="mb-3">
+      <!-- 전역 오류 메시지 표시 -->
+      <div th:if="${#fields.hasGlobalErrors()}">
+          <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
+      </div>
+
+      <!-- 개별 필드 오류 메시지 -->
+      <div class="mb-3">
+          <label for="lid" class="form-label">사용자ID</label>
+          <input id="lid" type="text" th:field="*{lid}" class="form-control">
+          <span th:if="${#fields.hasErrors('lid')}" th:errors="*{lid}"></span>
+      </div>
+      <div class="mb-3">
       <label for="lpwd" class="form-label">비밀번호</label>
-      <input type="password" th:field="*{lpwd}" class="form-control">
+      <input id="lpwd" type="password" th:field="*{lpwd}" class="form-control">
+      <span th:if="${#fields.hasErrors('lpwd')}" th:errors="*{lpwd}"></span>
     </div>
     <div class="mb-3">
       <label for="lpwd2" class="form-label">비밀번호 확인</label>
-      <input type="password" th:field="*{lpwd2}" class="form-control">
+      <input id="lpwd2" type="password" th:field="*{lpwd2}" class="form-control">
+        <span th:if="${#fields.hasErrors('lpwd2')}" th:errors="*{lpwd2}"></span>
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">이름</label>
-      <input type="email" th:field="*{name}" class="form-control">
+      <input id="name" th:field="*{uname}" class="form-control">
+        <span th:if="${#fields.hasErrors('uname')}" th:errors="*{uname}"></span>
     </div>
     <button type="submit" class="btn btn-primary">회원가입</button>
   </form>
